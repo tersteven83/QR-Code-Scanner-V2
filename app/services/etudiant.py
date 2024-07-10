@@ -86,9 +86,8 @@ def delete(db: Session, id_etudiant: int, operateur: schemas.Operator):
     
     # insertion dans le journal
     delete_journal = schemas.JournalCreate(
-        operation=f"Suppression de {db_etudiant['nom']} {db_etudiant['prenom']}",
-        date=datetime.now(),
-        im_etudiant=db_etudiant["matricule"]
+        operation=f"Suppression de {db_etudiant['nom']} {db_etudiant['prenom']} IM: {db_etudiant['matricule']} classe: {db_etudiant['niveau']} {db_etudiant['parcours']} année: {db_etudiant['annee_univ']}",
+        date=datetime.now()
     )
     insert_into_journal(current_op=operateur, journal=delete_journal, db=db)
 

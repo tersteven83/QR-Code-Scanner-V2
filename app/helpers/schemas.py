@@ -101,7 +101,7 @@ class JournalBase(BaseModel):
 
 
 class JournalCreate(JournalBase):
-    im_etudiant: str
+    im_etudiant: Union[str, None] = None
     
 
 class JournalToDB(JournalCreate):
