@@ -39,7 +39,7 @@ async def read_etudiant(im: str, db: Session = Depends(get_db)):
     return etudiant
 
 
-@router.get("/{qcode_data}", response_model=schemas.Etudiant)
+@router.get("/qrcode/{qcode_data}", response_model=schemas.Etudiant)
 async def read_etudiant_by_qrcode(qcode_data: str, db: Session = Depends(get_db)):
     etudiant = etudiant_service.get_by_qrcode(db, qcode_data)
     if etudiant is None:

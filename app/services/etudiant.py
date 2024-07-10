@@ -119,7 +119,7 @@ def get_by_qrcode(db: Session, qcode_data: str):
     # Rechercher d'abord le qr code dans la base de donnée
     qcode = qrcode_service.get_by_data(db, qcode_data)
     if qcode is not None:
-        return get_by_id(db, qcode.c.id_etudiant)
+        return get_by_id(db, qcode.id_etudiant)
     else:
         return None
 
