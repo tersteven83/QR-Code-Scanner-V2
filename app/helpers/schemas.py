@@ -1,7 +1,7 @@
-from typing import Union
+from typing import Annotated, Union
 
 from datetime import datetime
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, StringConstraints
 
 
 class QR_CodeBase(BaseModel):
@@ -31,7 +31,7 @@ class EtudiantBase(BaseModel):
     tel: str
     email: EmailStr
     adresse: str
-    niveau: str
+    niveau: Annotated[str, StringConstraints(max_length=2)]
     parcours: str
     matricule: str
     annee_univ: str
